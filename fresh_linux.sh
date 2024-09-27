@@ -21,7 +21,6 @@ xdg-mime default vlc.desktop audio/mpeg
 xdg-mime default vlc.desktop video/webm
 xdg-mime default vlc.desktop audio/mp3
 
-
 # Install yt-dlp and ffmpeg for video downloads
 echo -e "Installing yt-dlp and ffmpeg for downloading high-quality videos...\n"
 
@@ -42,7 +41,6 @@ sudo snap install code --classic
 # Set VS Code as the default editor for various file types
 echo -e "Setting VS Code as the default editor for common file types...\n"
 
-
 # Using the correct path to the VS Code .desktop file
 xdg-mime default code_code.desktop text/x-c  # .c files
 xdg-mime default code_code.desktop text/x-c++src  # .cpp files
@@ -56,30 +54,26 @@ xdg-mime default code_code.desktop application/xml  # .xml files
 
 echo -e "VS Code has been set as the default editor for selected file types.\n"
 
-sudo update-desktop-database
-sudo update-mime-database /usr/share/mime
+# Install Google Chrome
+echo -e "Installing Google Chrome...\n"
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt-get install -f -y  # Fix dependencies
+echo -e "Type 'google-chrome' to launch Chrome.\n"
 
 
-# # Install Google Chrome
-# echo -e "Installing Google Chrome...\n"
-# 
-# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-# sudo dpkg -i google-chrome-stable_current_amd64.deb
-# sudo apt-get install -f -y  # Fix dependencies
-# echo -e "Type 'google-chrome' to launch Chrome.\n"
-# 
 
+# Install Spotify client (optional)
+echo -e "Installing Spotify client...\n"
 
-# # Install Spotify client (optional)
-# echo -e "Installing Spotify client...\n"
-# 
-# curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
-# echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-# sudo apt update && sudo apt install spotify-client -y
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt update && sudo apt install spotify-client -y
 
-# # Apply SpotX to block ads on Spotify (optional)
-# echo -e "Patching Spotify to block ads...\n"
-# 
-# bash <(curl -sSL https://spotx-official.github.io/run.sh)
+# Apply SpotX to block ads on Spotify (optional)
+echo -e "Patching Spotify to block ads...\n"
 
-# echo -e "All installations and configurations are complete!\n"
+bash <(curl -sSL https://spotx-official.github.io/run.sh)
+
+echo -e "All installations and configurations are complete!\n"
