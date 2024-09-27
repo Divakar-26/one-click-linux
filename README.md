@@ -15,7 +15,6 @@ it also comes with patched Spotify.
 6. Chrome
 7. VLC meida player
 8. VS CODE text editor and Neovim
-9. 
 
 ## INSTALLATION
 1. Clone the repository
